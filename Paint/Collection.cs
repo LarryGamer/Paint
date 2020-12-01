@@ -99,5 +99,35 @@ namespace Paint
                 }
             }
         }
+
+        public void Sort(float width, float height) {
+            for (int i = 0; i < this.shapes.Count - 1; i++) 
+                for (int j = i + 1; j < this.shapes.Count; j++) 
+                    if (this.shapes[j].GetSquare() > this.shapes[i].GetSquare()) 
+                        (this.shapes[i], this.shapes[j]) = (this.shapes[j], this.shapes[i]);
+
+            float averWidth = 0;
+            float averHeight = 0;
+
+            foreach (Shape shape in shapes) {
+                averWidth += shape.Width;
+                averHeight += shape.Height;
+            }
+
+            averWidth /= this.shapes.Count;
+            averHeight /= this.shapes.Count;
+
+            float deltaX = width / averWidth;
+            float deltaY = height / averHeight;
+
+            float posX = 0;
+            float posY = 0;
+
+            foreach(Shape shape in shapes) {
+                shape.SetPosition(posX, posY);
+                posX += deltaX;
+                posY += deltaY;
+            }
+        }
     }
 }

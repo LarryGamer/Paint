@@ -252,5 +252,13 @@ namespace Paint
             collection.Redraw(graphics);
             pictureBox1.Image = picture;
         }
+
+        private void Sort() {
+            this.collection.Sort(this.pictureBox1.Width, this.pictureBox1.Height);
+            this.collection.Redraw(this.graphics);
+            this.pictureBox1.Update();
+        }
+
+        private void sortToolStripMenuItem_Click(object sender, EventArgs e) => Sort();
     }
 }

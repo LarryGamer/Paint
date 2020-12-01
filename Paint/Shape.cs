@@ -21,6 +21,9 @@ namespace Paint
         public RectangleF selectedRect;
 
 
+        public virtual float Width { get => 0; }
+        public virtual float Height { get => 0; }
+
         public void createRect()
         {
             float xRight = points[0].X;
@@ -98,6 +101,22 @@ namespace Paint
             {
                 points[i] = new PointF(points[i].X - point.X, points[i].Y - point.Y);
             }
+        }
+
+        public virtual double GetSquare() => 0;
+
+
+        /// <summary>
+        /// Устанавливает новое положение фигуры
+        /// </summary>
+        /// <param name="x">Координата левого верхнего угла описанного прямоугольника по оси Ox</param>
+        /// <param name="y">Координата левого верхнего угла описанного прямоугольника по оси Oy</param>
+        public virtual void SetPosition(float x, float y) {
+            float width = this.Width;
+            float height = this.Height;
+
+            points[0] = new PointF(x, y);
+            points[1] = new PointF(x + width, y + height);
         }
 
 

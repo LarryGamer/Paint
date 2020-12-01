@@ -6,6 +6,9 @@ namespace Paint
     [Serializable]
     class MyEllipse:Shape
     {
+        public override float Width { get => Math.Abs(points[1].X - points[0].X); }
+        public override float Height { get => Math.Abs(points[1].Y - points[0].Y); }
+
         public MyEllipse(PointF startPoint, PointF endPoint, Color colorBorder, byte widthBorder) : base(colorBorder, widthBorder)
         {
             points = new PointF[2];
@@ -40,5 +43,8 @@ namespace Paint
             else
                 return false;
         }
+
+        public override double GetSquare() => 0.25 * Math.PI * this.Width * this.Height;
+        public override void SetPosition(float x, float y) => base.SetPosition(x, y);
     }
 }

@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelTools = new System.Windows.Forms.Panel();
+            this.buttonSelect = new System.Windows.Forms.Button();
+            this.buttonFill = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.myEllipse = new System.Windows.Forms.Button();
             this.buttonDrawPryamougolnik = new System.Windows.Forms.Button();
@@ -41,8 +43,7 @@
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonFill = new System.Windows.Forms.Button();
-            this.buttonSelect = new System.Windows.Forms.Button();
+            this.sortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -52,10 +53,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(70, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(800, 426);
+            this.pictureBox1.Size = new System.Drawing.Size(730, 444);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -75,8 +75,31 @@
             this.panelTools.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelTools.Location = new System.Drawing.Point(0, 24);
             this.panelTools.Name = "panelTools";
-            this.panelTools.Size = new System.Drawing.Size(68, 426);
+            this.panelTools.Size = new System.Drawing.Size(68, 444);
             this.panelTools.TabIndex = 1;
+            // 
+            // buttonSelect
+            // 
+            this.buttonSelect.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSelect.BackgroundImage")));
+            this.buttonSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSelect.Location = new System.Drawing.Point(4, 353);
+            this.buttonSelect.Name = "buttonSelect";
+            this.buttonSelect.Size = new System.Drawing.Size(60, 61);
+            this.buttonSelect.TabIndex = 6;
+            this.buttonSelect.Text = "Select";
+            this.buttonSelect.UseVisualStyleBackColor = true;
+            this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
+            // 
+            // buttonFill
+            // 
+            this.buttonFill.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonFill.BackgroundImage")));
+            this.buttonFill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonFill.Location = new System.Drawing.Point(4, 309);
+            this.buttonFill.Name = "buttonFill";
+            this.buttonFill.Size = new System.Drawing.Size(60, 38);
+            this.buttonFill.TabIndex = 5;
+            this.buttonFill.UseVisualStyleBackColor = true;
+            this.buttonFill.Click += new System.EventHandler(this.buttonFill_Click);
             // 
             // button1
             // 
@@ -149,7 +172,8 @@
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveAsToolStripMenuItem,
-            this.openToolStripMenuItem});
+            this.openToolStripMenuItem,
+            this.sortToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
@@ -157,45 +181,29 @@
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
-            // buttonFill
+            // sortToolStripMenuItem
             // 
-            this.buttonFill.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonFill.BackgroundImage")));
-            this.buttonFill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonFill.Location = new System.Drawing.Point(4, 309);
-            this.buttonFill.Name = "buttonFill";
-            this.buttonFill.Size = new System.Drawing.Size(60, 38);
-            this.buttonFill.TabIndex = 5;
-            this.buttonFill.UseVisualStyleBackColor = true;
-            this.buttonFill.Click += new System.EventHandler(this.buttonFill_Click);
-            // 
-            // buttonSelect
-            // 
-            this.buttonSelect.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSelect.BackgroundImage")));
-            this.buttonSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSelect.Location = new System.Drawing.Point(4, 353);
-            this.buttonSelect.Name = "buttonSelect";
-            this.buttonSelect.Size = new System.Drawing.Size(60, 61);
-            this.buttonSelect.TabIndex = 6;
-            this.buttonSelect.Text = "Select";
-            this.buttonSelect.UseVisualStyleBackColor = true;
-            this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
+            this.sortToolStripMenuItem.Name = "sortToolStripMenuItem";
+            this.sortToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sortToolStripMenuItem.Text = "Sort";
+            this.sortToolStripMenuItem.Click += new System.EventHandler(this.sortToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 468);
             this.Controls.Add(this.panelTools);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
@@ -230,6 +238,7 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.Button buttonFill;
         private System.Windows.Forms.Button buttonSelect;
+        private System.Windows.Forms.ToolStripMenuItem sortToolStripMenuItem;
     }
 }
 
